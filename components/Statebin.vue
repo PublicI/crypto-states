@@ -57,7 +57,7 @@ export default {
 
             let thresholdScale = d3.scaleOrdinal()
                 .domain(['Allowed','Banned','Banned in House','Debating','None','No data'])
-                .range(['#73AF48','#CC503E','#E17C05','#EDAD08','#666666','#cecece'])
+                .range(['#73AF48','#CC503E','#E17C05','#994E95','#666666','#cecece'])
 
             return thresholdScale;
             /*
