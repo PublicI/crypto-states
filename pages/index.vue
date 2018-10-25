@@ -1,12 +1,12 @@
 <template>
     <div>
-        <h4>{{allowed.length-1}} and D.C. states allow cryptocurrency contributions</h4>
+        <h4>{{capfirst(apnumber(allowed.length-1))}} states and D.C. allow cryptocurrency contributions</h4>
         <statebin :rows="allowed" :labels="['Allowed']" :colors="['#73AF48']" />
 
-        <h4>{{banned.length}} states ban cryptocurrency contributions</h4>
+        <h4>{{capfirst(apnumber(banned.length))}} states ban cryptocurrency contributions</h4>
         <statebin :rows="banned" :labels="['Banned','Banned in House']" :colors="['#CC503E','#E17C05']" />
 
-        <h4>{{none.length}} states are debating or have no policy on cryptocurrency contributions</h4>
+        <h4>{{capfirst(apnumber(none.length))}} states are debating or have no policy on cryptocurrency contributions</h4>
         <statebin :rows="none" :labels="['Debating','None']" :colors="['#994E95','#666666']" />
     </div>
 </template>
@@ -14,8 +14,16 @@
 <script>
 import rows from '~/assets/State Ethics Offices - State List.csv'
 import Statebin from '~/components/Statebin.vue';
+import { apnumber } from 'journalize';
 
 export default {
+    methods: {
+        apnumber,
+        capfirst(s) {
+            s = s + '';
+            return s.slice(0,1).toUpperCase() + s.slice(1);
+        }
+    },
     data() {
         let states = rows.map(row => {
             return {
