@@ -17,6 +17,7 @@
 import rows from '~/assets/State Ethics Offices - State List.csv'
 import Statebin from '~/components/Statebin.vue';
 import { apnumber } from 'journalize';
+import { csvParse } from 'd3';
 
 export default {
     methods: {
@@ -26,7 +27,14 @@ export default {
             return s.slice(0,1).toUpperCase() + s.slice(1);
         }
     },
-    data() {
+    async asyncData({ app, error }) {
+        const spreadsheetUrl =
+            'https://docs.google.com/spreadsheets/d/e/2PACX-1vQpkpFPfD56KzMNefQ6vPBenErBa3slTawfrq_nFpE3ARRzstVQrQzS7Ii6OIdMvwxLln9V_gqATZKB/pub?gid=545548731&single=true&output=csv';
+        let csv = await app.$axios.$get(spreadsheetUrl);
+        let rows = await csvParse(csv);
+
+        console.log(rows);
+
         let states = rows.map(row => {
             return {
                 state: row.State,
