@@ -57,11 +57,13 @@ export default {
 h4 {
     max-width: 280px;
     line-height: 115%;
+    padding-left: 8px;
 }
 .chatter {
     max-width: 280px;
     font-size: 15px;
     line-height: 130%;
     color: rgb(100,100,100);
+    padding-left: 8px;
 }
 </style>
