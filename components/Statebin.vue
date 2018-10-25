@@ -1,6 +1,6 @@
 <template>
-    <div class="statebinContainer">
-        <svg style="width:100%;height:140px">
+    <div class="statebinContainer" style="position: relative;">
+        <svg style="width:100%;height:60px;position: absolute; top: -19px; left: -12px">
             <g class="legendLinear" transform="translate(20,20)">
             </g>
         </svg>
@@ -22,6 +22,8 @@ import { legendColor } from 'd3-svg-legend';
 
 export default {
     props: {
+        colors: Array,
+        labels: Array,
         rows: Array
     },
     data() {
@@ -39,16 +41,18 @@ export default {
         };
     },
     mounted() {
-        this.$nextTick(() => {
+        let vm = this;
+
+        vm.$nextTick(() => {
             let legendLinear = legendColor()
                 .shapeWidth(20)
                 // .labels(['Allowed','Banned','Banned in House','Debating','None',''])
                 // .labelAlign('end')
                 // .orient('horizontal')
                 // .labelFormat(',')
-                .scale(this.scale());
+                .scale(vm.scale());
 
-            d3.select('.legendLinear').call(legendLinear);
+            d3.select(vm.$el).select('.legendLinear').call(legendLinear);
         });
     },
     methods: {
@@ -56,8 +60,8 @@ export default {
             // const logScale = d3.scaleLog().domain([1, 8566]);
 
             let thresholdScale = d3.scaleOrdinal()
-                .domain(['Allowed','Banned','Banned in House','Debating','None','No data'])
-                .range(['#73AF48','#CC503E','#E17C05','#994E95','#666666','#cecece'])
+                .domain(this.labels)
+                .range(this.colors)
 
             return thresholdScale;
             /*
@@ -118,7 +122,7 @@ export default {
     position: relative;
     width: 300px;
     height: 220px;
-    margin-top: -19px;
+    margin-top:15px;
 }
 
 .statebin {

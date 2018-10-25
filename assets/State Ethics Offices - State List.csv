@@ -8,12 +8,14 @@ Tennessee,Allowed
 Vermont,Allowed
 Washington,Allowed
 District of Columbia,Allowed
+Massachusetts,Allowed
 California,Banned
 Kansas,Banned
 Kentucky,Banned
 Maryland,Banned
 Missouri,Banned
 North Carolina,Banned
+Nevada,Banned
 South Carolina,Banned in House
 Connecticut,Debating
 Delaware,Debating
@@ -32,19 +34,17 @@ Rhode Island,None
 Texas,None
 Utah,None
 New Mexico,None
-Florida,
+Illinois,None
+New Jersey,None
+North Dakota,None
+Ohio,None
+Oklahoma,None
+Florida,None
 Georgia,
 Hawaii,
-Idaho,
-Illinois,None
-Massachusetts,
+Idaho,None
 Michigan,
 Mississippi,
-Nevada,
-New Jersey,
-North Dakota,
-Ohio,
-Oklahoma,
 Pennsylvania,
 South Dakota,
 Virginia,
