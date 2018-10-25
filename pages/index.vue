@@ -35,7 +35,7 @@ export default {
         });
 
         return {
-            responded: states.filter(row => row.regulations === ''),
+            responded: states.filter(row => row.regulations !== ''),
             allowed: states.filter(row => row.regulations === 'Allowed'),
             banned: states.filter(row => row.regulations === 'Banned' || row.regulations === 'Banned in House'),
             none: states.filter(row => row.regulations === 'None' || row.regulations === 'Debating')
