@@ -1,12 +1,12 @@
 <template>
     <div>
-        <h4>{{capfirst(apnumber(allowed.length-1))}} states and D.C. allow cryptocurrency contributions</h4>
+        <h4>At least {{apnumber(allowed.length-1)}} states and D.C. allow cryptocurrency contributions</h4>
         <statebin :rows="allowed" :labels="['Allowed']" :colors="['#73AF48']" />
 
-        <h4>{{capfirst(apnumber(banned.length))}} states ban cryptocurrency contributions</h4>
+        <h4>At least {{apnumber(banned.length)}} states ban cryptocurrency contributions</h4>
         <statebin :rows="banned" :labels="['Banned','Banned in House']" :colors="['#CC503E','#E17C05']" />
 
-        <h4>{{capfirst(apnumber(none.length))}} states are debating or have no policy on cryptocurrency contributions</h4>
+        <h4>At least {{apnumber(none.length)}} states are debating or have no policy on cryptocurrency contributions</h4>
         <statebin :rows="none" :labels="['Debating','None']" :colors="['#994E95','#666666']" />
     </div>
 </template>
