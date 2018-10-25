@@ -33,8 +33,6 @@ export default {
         let csv = await app.$axios.$get(spreadsheetUrl);
         let rows = await csvParse(csv);
 
-        console.log(rows);
-
         let states = rows.map(row => {
             return {
                 state: row.State,
